@@ -1,0 +1,15 @@
+#!/bin/bash
+#Author: D.Kufel
+#Date: 08/08/2016
+'''
+Code used to run the set of Monte Carlo simulations for different pre-set parameters.
+'''
+
+for TemperatureVesicle in range(1,10):
+	number_new1=str(TemperatureVesicle).rjust(3,'0')
+	for Runnumber in range(1,41):
+		number_new2=str(Runnumber).rjust(3,'0')
+		print(number_new1, number_new2)
+		print("-----------------------------------")
+		!sudo perl run.pl {number_new1} {number_new2}
+		

@@ -1,0 +1,18 @@
+Monte Carlo simulation of synaptic transmission used in the construction of the model developed in a paper: "Analytical modelling of temperature effects on an AMPA-type synapse", submitted to the Journal of Computational Neuroscience - Kufel&Wojcik 2018.
+
+Author: Dominik Kufel (dominik.kufel.17@ucl.ac.uk)
+Date: 05/03/2018
+
+This code was used in the construction of the model developed in the paper. It is a modified version of the simulation developed by Postlethwaite et al. 2007 - for details of modifications from the original version please refer to the main body of our paper. For detailed assumptions behind the model refer to Postlethwaite et al. 2007.  The code uses MCell: http://mcell.org/
+
+Notes:
+1) The code requires older MCell version 2.76 (which was attached in this directory) which has to be put in the proper location (/home/yourusername/bin) which may be specified in file "run.pl" which requires Perl to be run. 
+2) The file "effectors.mdl" in the main directory contains the implementation of the kinetic scheme (Scheme 2 in the paper) used in the analytical model. The folder "Other kinetic schemes used" contains the files which shall be replaced (if desired) with the file "effectors.mdl" in the main directory to implement different kinetic schemes.
+3) To run the simulations following steps have to be completed: 
+- setting simulation parameters in file "preparesimulation.py","calyx.mdl" and "parameters.mdl" and running "preparesimulation.py" file which will create the set of files used later in simulations
+- modifying the PATH to MCell in file "run.pl".
+- running the set of simulations (with appropriate parameters set in previous steps) using "control.ipy" which has to be run with IPython (as an alternative to the Bash Shell script).
+- finally set of the data analysis tools may be run using files: "average_open.py" (outputting average conductance of the AMPA-type synapse), "channelanalysis.py" (outputting average occupancy of all of the AMPAR states), "statistical_analysis.py" - to find the variation in the AMPA conductance responses. 
+4) As the simulations use Monte Carlo methods we need a reasonable number of repetitions to find out the average conductance of the AMPA-type synapse - you may specify the number of runs in file "preparesimulation.py" and then also put this number in the "control.ipy" file.
+
+If found, please report any bugs in the code to dominik.kufel.17@ucl.ac.uk
